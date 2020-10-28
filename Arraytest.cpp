@@ -50,31 +50,28 @@ void boardMover(int xAx[][3])
     cout << "\n\nMove to the\nLEFT (1)\nRIGHT (2)\nUP (3)\nDOWN (4)\n";
     cin >> moveTo;
 
-    if (0 < moveTo < 5)
+    switch (moveTo)
     {
-        if (moveTo == 1)
-        {
-            for (int i = 0; i < 3; i++)
+        case 1:
+        for (int i = 0; i < 3; i++)
             {
                 tempArray[i][0] = xAx[i][0];
                 xAx[i][0] = xAx[i][1];
                 xAx[i][1] = xAx[i][2];
                 xAx[i][2] = tempArray[i][0];
             }
-        }
-        if (moveTo == 2) 
-        {
-            for (int i = 0; i < 3; i++)
+        break;
+        case 2:
+        for (int i = 0; i < 3; i++)
             {
                 tempArray[i][2] = xAx[i][2];
                 xAx[i][2] = xAx[i][1];
                 xAx[i][1] = xAx[i][0];
                 xAx[i][0] = tempArray[i][2];
             }
-        }
-        if (moveTo == 3) 
-        {
-            for (int i = 0; i < 3; i++)
+        break;
+        case 3:
+        for (int i = 0; i < 3; i++)
             {
                 tempArray[0][i] = xAx[0][i];
                 xAx[0][i] = xAx[1][i];
@@ -82,9 +79,8 @@ void boardMover(int xAx[][3])
                 xAx[2][i] = tempArray[0][i];
                 
             }
-        }
-        if (moveTo == 4) 
-    {
+        break;
+        case 4:
         for (int i = 0; i < 3; i++)
         {
             tempArray[2][i] = xAx[2][i];
@@ -92,6 +88,8 @@ void boardMover(int xAx[][3])
             xAx[1][i] = xAx[0][i];
             xAx[0][i] = tempArray[2][i];
         }
+        break;
+        default:
+        cout << "SKIPPED";
     }
-    } 
 }
